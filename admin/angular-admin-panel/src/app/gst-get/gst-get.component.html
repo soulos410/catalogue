@@ -1,0 +1,24 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+      <td>Title</td>
+      <td>Brand</td>
+      <td>Date</td>
+      <td>OS</td>
+      <td>URI</td>
+      <td colspan="2">Actions</td>
+  </tr>
+  </thead>
+
+  <tbody>
+      <tr *ngFor="let phone of phones">
+          <td>{{ phone.title }}</td>
+          <td>{{ phone.brand }}</td>
+          <td>{{ phone.date }}</td>
+          <td>{{ phone.os }}</td>
+          <td>{{ phone.uri }}</td>
+          <td><a [routerLink]="['edit', phone._id]" class="btn btn-primary">Edit</a></td>
+          <td><a (click) = "deletePhones(phone._id)" class="btn btn-danger">Delete</a></td>
+      </tr>
+  </tbody>
+</table>

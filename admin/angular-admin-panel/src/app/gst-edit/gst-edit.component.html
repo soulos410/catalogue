@@ -1,0 +1,56 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Title</label>
+        <input type="text" class="form-control" formControlName="title" #title [(ngModel)] = "phones.title" />
+      </div>
+      <div *ngIf="angForm.controls['title'].invalid && (angForm.controls['title'].dirty || angForm.controls['title'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['title'].errors.required">
+          Title is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Brand</label>
+        <input type="text" class="form-control" formControlName="brand" #brand [(ngModel)] = "phones.brand" />
+      </div>
+      <div *ngIf="angForm.controls['brand'].invalid && (angForm.controls['brand'].dirty || angForm.controls['brand'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['brand'].errors.required">
+          Brand is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Date</label>
+        <input type="text" class="form-control" formControlName="date" #date [(ngModel)] = "phones.date" />
+      </div>
+      <div *ngIf="angForm.controls['date'].invalid && (angForm.controls['date'].dirty || angForm.controls['date'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['date'].errors.required">
+          Date is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">OS</label>
+        <input type="text" class="form-control" formControlName="os" #os [(ngModel)] = "phones.os" />
+      </div>
+      <div *ngIf="angForm.controls['os'].invalid && (angForm.controls['os'].dirty || angForm.controls['os'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['os'].errors.required">
+          OS is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">URI</label>
+        <input type="text" class="form-control" formControlName="uri" #uri [(ngModel)] = "phones.uri" />
+      </div>
+      <div *ngIf="angForm.controls['uri'].invalid && (angForm.controls['uri'].dirty || angForm.controls['uri'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['uri'].errors.required">
+          URI is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click)="updatePhones(title.value, brand.value, date.value, os.value, uri.value)"
+        [disabled]="angForm.invalid" 
+        class="btn btn-primary">Update phone</button>
+      </div>
+    </form>
+  </div>
+</div>
